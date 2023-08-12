@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en"><script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+      displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+    //,
+    //displayAlign: "left",
+    //displayIndent: "2em"
+  });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Ideas store</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Introduction to neural Networks</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-04-06T00:00:00+02:00" itemprop="datePublished">Apr 6, 2023
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">ROMMANE Soukaina</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="why-deep-learning">Why Deep Learning?</h1>
+
+<p>We consider the problem of handwritten digits recognition. It appears very obvious to humans to recognize a handwritten digit but imagine that we want to write a computer program that takes as input an image of handwritten digit and gives us as output the corresponding digit in the image. We can think of a program that recognize digits based on the description of the shape of each. For example, a 7 has a vertical stroke with two short strokes, one on the top left and the other on the middle. But how to express this algorithmically, and how to make those conditions in practice and manage all special cases?
+We can immediately realise how it’s complicated or even impossible.
+To solve this kind of problems, scientists have tough about some methods that make computers learn from data. This idea lays in the heart of Machine Learning. One of the most powerful of these algorithms is Neural Networks.</p>
+
+<h3 id="neural-networks">Neural Networks</h3>
+<p>Neural Network is one of the algorithms of machine learning, inspired by the biological human brain. To explain the similarity between the human brain and the concept behind neural networks, let’s try to understand how the human brain recognise the image of a cat. First, all the formations contained in the image will be transferred to the brain using the eyes, which represent in this case the input layer. Next, the brain starts to analyse this image using its biological neurons, which represent intermediates layers (the hidden layers). The last step  is decision making: is it a cat or something else? 
+Based on its memory storage, the brain makes its decision and send it to be either written by hand or told by mouth or simply saved in memory (The output Layer).</p>
+
+<h3 id="neuron">Neuron</h3>
+<p>Talking about Neuron means that there’s an input, weight, a threshold and an output. There’s two types of Neuron, the perceptron and the sigmoid.</p>
+<h3 id="the-perceptron">The perceptron</h3>
+<p>The perceptron takes binary input and gives binary output. Each input $x_i$ has a weight $w_i$ that express his importance to the output, and the threshold is a parameter of the neuron.
+The output of the perceptron is given by:</p>
+
+\[\begin{equation}\label{Neuron}
+\overrightarrow{O}=\left\{
+\begin{array}{l}
+1 \; \textrm{if} \quad \sum\limits_{i} w_{i} x_{i} \; + \; \textrm{threashod} \;&gt;0,\\
+0 \; \textrm{if} \quad \sum\limits_{i} w_{i} x_{i} \;+ \; \textrm{threashod} \;\leqslant 0
+\end{array}\right.
+\end{equation}\]
+
+<p>which is equivalent to:
+\(\begin{equation}\label{Neuron_1}
+\overrightarrow{O}=\left\{
+\begin{array}{l}
+1 \; \textrm{if} \quad w.x \; + \; b \;&gt;0,\\
+0 \; \textrm{if} \quad w.x \; + \; b \;\leqslant 0
+\end{array}\right.
+\end{equation}\)</p>
+
+<p>To understand how it works, let’s take a simple example. Suppose that you want to predict if Jean is going to travel in Italy for the holidays based on tree binary variables: $x_1$ is equal  to 1 if the total price of the plane tickets and the hotel is less or equal to 500 euros and $x_1$ is equal to zero if not, $x_2$ is equal to 1 if the weather is nice and $x_2$ is equal to 0 if not, $x_3$ is equal to 1 if his best friend is going to give him company and it’s equal to zero if not.<br />
+The output $\overrightarrow{O}$ is a binary variable</p>
+
+\[\begin{equation}\label{example}
+\overrightarrow{O}=\left\{
+\begin{array}{l}
+1 \; \textrm{if Jean is going to Italy} \\
+0 \; \textrm{else}
+\end{array}\right.
+\end{equation}\]
+
+<p>To each input, we associate a weight that express the importance of this input.</p>
+
+<p>$w_i$ is the weight of the input of $x_i$ for $i \in {1,2,3}$.
+The output is given by:</p>
+
+\[\overrightarrow{O}=W.X +b\]
+
+<p>If we take $W =[7, 5, 9]$, $b = -12$ and $x =[1,0,1]^t$,
+that’s mean that the total price of the plane tickets and the hotel is less or equal to 500 euros, the weather is not nice and his best friend is going with him. Based on the weight matrix, the fact that his best friend is going with him is more important than the ticket price which is more important than the weather for Jean. 
+Based on the weight matrix and the input given:</p>
+
+\[\overrightarrow{O} = [7,5,9].[1,0,1]^t - 12\]
+
+<p>which implies that Jean Go.</p>
+
+<p>Changing the weight matrix and the threshold will gives different results, even if this change is too much small. This is one of the problems of perceptron: \textbf{Small change in input doesn’t imply small change in output }
+For example  for $x =[0,0,1]$ implies that</p>
+
+\[\overrightarrow{O} = W.x +b = -1 &lt;0\]
+
+<p>implies that Jean doesn’t go.
+This is a big problem using perceptron to make decision.</p>
+
+<h3 id="the-sigmoid">The sigmoid</h3>
+
+<p><img src="/assets/img/perceptron_sigmoid.png" alt="Perceptron vs Sigmoid" /></p>
+
+
+  </div><a class="u-url" href="/journal/2023/04/06/Neural-Networks-introduction.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ideas store</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ideas store</li><li><a class="u-email" href="mailto:rommanesoukaina@gmail.com">rommanesoukaina@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
